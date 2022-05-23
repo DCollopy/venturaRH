@@ -1,0 +1,6 @@
+
+/src/main/resources/application.properties
+/.idea/**
+/.mvn/wrapper/**
+/.mvn/wrapper/maven-wrapper.jar
+/.mvn/wrapper/maven-wrapper.properties
