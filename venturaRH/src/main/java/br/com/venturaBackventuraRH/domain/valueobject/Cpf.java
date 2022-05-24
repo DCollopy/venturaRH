@@ -2,15 +2,22 @@ package br.com.venturaBackventuraRH.domain.valueobject;
 
 import lombok.Getter;
 
+import javax.persistence.Embeddable;
+import java.io.Serializable;
+@Embeddable
 @Getter
-public class Cpf {
-    private String numero;
+public class Cpf implements Serializable {
+    private String cpf;
 
-    public Cpf(String numero) {
-        if (numero == null || !numero.matches("^(\\d{3}\\.?\\d{3}\\.?\\d{3}-?\\d{2})$"))
+    public Cpf(String cpf) {
+        if (cpf == null || !cpf.matches("^(\\d{3}\\.?\\d{3}\\.?\\d{3}-?\\d{2})$"))
         {
             throw new IllegalArgumentException("CPF invalido");
         }
-        this.numero = numero;
+        this.cpf = cpf;
+    }
+
+    public Cpf() {
+
     }
 }

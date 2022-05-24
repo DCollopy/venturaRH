@@ -1,16 +1,24 @@
 package br.com.venturaBackventuraRH.domain.valueobject;
 
-import java.util.ArrayList;
-import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
 
-public class Criterio {
-    private List<String> criterioVaga = new ArrayList<>();
+import javax.persistence.Embeddable;
+import java.io.Serializable;
+
+@Embeddable
+@Getter
+@Setter
+public class Criterio implements Serializable {
     private int pmd;
     private int peso;
 
-    public Criterio(List<String> criterioVaga, int pmd, int peso) {
-        this.criterioVaga = criterioVaga;
+    public Criterio( int pmd, int peso) {
         this.pmd = pmd;
         this.peso = peso;
+    }
+
+    public Criterio() {
+
     }
 }

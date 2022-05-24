@@ -1,7 +1,6 @@
 package br.com.venturaBackventuraRH.domain;
 
 import br.com.venturaBackventuraRH.domain.valueobject.Cnpj;
-import br.com.venturaBackventuraRH.domain.valueobject.Cpf;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,7 +24,7 @@ class CnpjTest {
         String numero = "11.111.111/0001-11";
         Cnpj cnpj = new Cnpj(numero);
 
-        assertEquals(numero,cnpj.getNumero());
+        assertEquals(numero,cnpj.getCnpj());
 
     }
 

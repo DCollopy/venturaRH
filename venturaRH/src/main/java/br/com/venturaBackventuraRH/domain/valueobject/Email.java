@@ -1,9 +1,15 @@
 package br.com.venturaBackventuraRH.domain.valueobject;
 
 import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.Embeddable;
+import java.io.Serializable;
+
+@Embeddable
 @Getter
-public class Email {
+@Setter
+public class Email implements Serializable {
     private String endereco;
 
     public Email(String endereco) {
@@ -12,5 +18,9 @@ public class Email {
             throw new IllegalArgumentException("E-mail invalido");
         }
         this.endereco = endereco;
+    }
+
+    public Email() {
+
     }
 }

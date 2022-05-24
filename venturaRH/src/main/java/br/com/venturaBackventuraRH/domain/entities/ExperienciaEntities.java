@@ -1,6 +1,21 @@
 package br.com.venturaBackventuraRH.domain.entities;
 
-public class ExperienciaEntities {
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Set;
+
+import static javax.persistence.CascadeType.ALL;
+
+@Entity
+@Table(name = "experiencias")
+@Getter
+@Setter
+public class ExperienciaEntities implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int uuid;
     private String nomeEmpresa;
     private String funcao;
@@ -12,4 +27,11 @@ public class ExperienciaEntities {
         this.funcao = funcao;
         this.descricao = descricao;
     }
+
+    public ExperienciaEntities() {
+
+    }
+
+    @ManyToMany(cascade = ALL)
+    Set<UsuarioEntities> usuario_experiencia;
 }

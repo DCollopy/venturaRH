@@ -1,9 +1,15 @@
 package br.com.venturaBackventuraRH.domain.valueobject;
 
 import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.Embeddable;
+import java.io.Serializable;
+
+@Embeddable
 @Getter
-public class Telefone {
+@Setter
+public class Telefone implements Serializable {
     private String ddd;
     private String numero;
 
@@ -24,4 +30,7 @@ public class Telefone {
         this.numero = numero;
     }
 
+    public Telefone() {
+
+    }
 }

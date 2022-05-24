@@ -2,25 +2,42 @@ package br.com.venturaBackventuraRH.domain.entities;
 
 import br.com.venturaBackventuraRH.domain.valueobject.Cpf;
 import br.com.venturaBackventuraRH.domain.valueobject.Email;
-import br.com.venturaBackventuraRH.domain.valueobject.Telefone;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
+import java.util.Set;
+
+import static javax.persistence.CascadeType.ALL;
+
+@Entity
+@Table(name = "usuarios")
+@Getter
+@Setter
 public class UsuarioEntities extends PerfilEntities {
-    private EscolaridadeEntities escolaridadeEntities;
-    private SkillEntities skillEntities;
-    private ExperienciaEntities experienciaEntities;
 
-    public UsuarioEntities(String uuid,
-                           String nome,
+    public UsuarioEntities(String nome,
                            String sobrenome,
                            Cpf cpf, String cidade,
-                           Email email,
-                           EscolaridadeEntities escolaridadeEntities,
-                           SkillEntities skillEntities, ExperienciaEntities experienciaEntities) {
-        super(uuid, nome, sobrenome, cpf, cidade, email);
-        this.escolaridadeEntities = escolaridadeEntities;
-        this.skillEntities = skillEntities;
-        this.experienciaEntities = experienciaEntities;
+                           Email email) {
+        super(nome, sobrenome, cpf, cidade, email);
     }
+
+    public UsuarioEntities() {
+    }
+
+    @ManyToMany(cascade = ALL)
+    Set<EscolaridadeEntities> escolaridade_usuario;
+
+    @ManyToMany(cascade = ALL)
+    Set<SkillEntities> skill_usuario;
+
+    @ManyToMany(cascade = ALL)
+    Set<ExperienciaEntities> experiencia_usuario;
+
+    @ManyToMany(cascade = ALL)
+    Set<OportunidadeEntities> oportunidade_usuario;
 }

@@ -25,7 +25,7 @@ class CpfTest {
         String numero = "368.592.968-28";
         Cpf cpf = new Cpf(numero);
 
-        assertEquals(numero,cpf.getNumero());
+        assertEquals(numero,cpf.getCpf());
 
     }
 }

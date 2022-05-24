@@ -1,10 +1,22 @@
 package br.com.venturaBackventuraRH.domain.entities;
 
 
-import java.util.ArrayList;
-import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
 
-public class SkillEntities {
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Set;
+
+import static javax.persistence.CascadeType.ALL;
+
+@Entity
+@Table(name="skills")
+@Getter
+@Setter
+public class SkillEntities implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int uuid;
     private String lingagem;
 
@@ -12,4 +24,11 @@ public class SkillEntities {
         this.uuid = uuid;
         this.lingagem = lingagem;
     }
+
+    public SkillEntities() {
+
+    }
+
+    @ManyToMany(cascade = ALL)
+    Set<UsuarioEntities> usuario_skill;
 }
