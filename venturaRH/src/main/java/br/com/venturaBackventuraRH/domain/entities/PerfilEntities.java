@@ -30,6 +30,6 @@ public class PerfilEntities implements Serializable {
         this.email = email;
     }
 
-    public PerfilEntities() {
+    protected PerfilEntities() {
     }
 }

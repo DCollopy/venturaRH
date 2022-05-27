@@ -30,7 +30,7 @@ public class Telefone implements Serializable {
         this.numero = numero;
     }
 
-    public Telefone() {
+    protected Telefone() {
 
     }
 }
